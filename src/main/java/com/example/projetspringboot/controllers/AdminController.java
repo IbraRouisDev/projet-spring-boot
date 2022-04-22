@@ -1,7 +1,9 @@
 package com.example.projetspringboot.controllers;
 
+import com.example.projetspringboot.entities.Book;
 import com.example.projetspringboot.entities.City;
 import com.example.projetspringboot.entities.Library;
+import com.example.projetspringboot.repositories.BookRepository;
 import com.example.projetspringboot.repositories.CityRepository;
 import com.example.projetspringboot.repositories.LibraryRepository;
 import org.springframework.stereotype.Controller;
@@ -17,10 +19,12 @@ public class AdminController {
 
     private CityRepository cityrepo;
     private LibraryRepository librepo;
+    private BookRepository bookrepo;
 
-    AdminController(CityRepository cityrepo, LibraryRepository librepo) {
+    AdminController(CityRepository cityrepo, LibraryRepository librepo, BookRepository bookrepo) {
         this.cityrepo=cityrepo;
         this.librepo=librepo;
+        this.bookrepo=bookrepo;
     }
 
     @GetMapping("")
@@ -60,6 +64,23 @@ public class AdminController {
             librepo.save(library);
             model.addAttribute("library", new Library());
             return "admin/library_form";
+        }
+    }
+
+    @GetMapping("/book")
+    public String bookForm(Model model) {
+        model.addAttribute("book", new Book());
+        return "admin/book_form";
+    }
+
+    @PostMapping("/book")
+    public String bookPostHandler(@ModelAttribute Book book, Model model) {
+        if(bookrepo.findByName(book.getName()) != null) {
+            return "failed";
+        } else {
+            bookrepo.save(book);
+            model.addAttribute("book", new Book());
+            return "admin/book_form";
         }
     }
 }
