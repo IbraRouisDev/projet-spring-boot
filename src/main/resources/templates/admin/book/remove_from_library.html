@@ -37,7 +37,7 @@
 </nav>
 <main>
     <div class="centred-container container mt-5">
-        <form action="#" th:action="@{/admin/book/addtolib}" th:object="${formData}" method="post">
+        <form action="#" th:action="@{/admin/book/removefromlib}" th:object="${formData}" method="post">
             <div class="form-group">
                 <label for="bookId">Name:</label>
                 <input readonly type="number" class="form-control" id="bookId" placeholder="Id" th:field="*{book_id}">

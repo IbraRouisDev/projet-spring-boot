@@ -131,7 +131,7 @@ public class AdminController {
         return "admin/book/remove_from_library";
     }
 
-    @PostMapping("/book/removefromlibb")
+    @PostMapping("/book/removefromlib")
     public String remove_book_from_library(@ModelAttribute BookToLibraryFormData formData) {
         var book = bookrepo.findById(formData.getBook_id());
         var library = librepo.findById(formData.getLibrary_id());

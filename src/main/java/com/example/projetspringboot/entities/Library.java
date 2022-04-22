@@ -19,10 +19,6 @@ public class Library {
     private City city;
 
     @ManyToMany
-    @JoinTable(
-            name = "library_book",
-            joinColumns = @JoinColumn(name = "library_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
     private List<Book> books;
 
     public City getCity() {
