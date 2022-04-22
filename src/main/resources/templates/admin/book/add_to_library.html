@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
+    <title>Add book to library</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-    <script th:href="@{/js/boot.js}"></script>
+    <script th:href="@{/js/bootstrap.js}"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -31,18 +32,22 @@
                 <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
             </li>
         </ul>
-        <a class="btn btn-warning mx-2" th:href="@{/admin}">Admin Dashboard</a>
+        <a class="btn btn-success mx-2" th:href="@{/admin}">Admin Dashboard</a>
     </div>
 </nav>
-
 <main>
-    <div class="alert alert-danger text-center" role="alert">
-        Error: Something wrong happened!
+    <div class="centred-container container mt-5">
+        <form action="#" th:action="@{/admin/book/addtolib}" th:object="${formData}" method="post">
+            <div class="form-group">
+                <label for="bookId">Name:</label>
+                <input readonly type="number" class="form-control" id="bookId" placeholder="Id" th:field="*{book_id}">
+            </div>
+            <select th:field="*{library_id}" class="form-control">
+                <option th:each="library: ${libraries}" th:value="${library.id}" th:text="${library.name}"></option>
+            </select>
+            <button type="submit" class="btn btn-primary my-2">Add To Library</button>
+        </form>
     </div>
 </main>
-
-<footer class="container text-center">
-    <p>&copy; Books Finder 2022-2023</p>
-</footer>
 </body>
 </html>

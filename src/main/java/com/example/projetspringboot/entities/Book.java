@@ -19,12 +19,13 @@ public class Book {
     @ManyToMany(mappedBy = "books")
     private List<Library> libraries;
 
-    public Book() {}
+    public Book() {
+    }
 
     public Book(String name, String description, String author) {
-        this.name=name;
-        this.description=description;
-        this.author=author;
+        this.name = name;
+        this.description = description;
+        this.author = author;
     }
 
     public long getId() {
@@ -47,11 +48,19 @@ public class Book {
         this.name = name;
     }
 
+    public List<Library> getLibraries() {
+        return libraries;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setLibraries(List<Library> libraries) {
+        this.libraries = libraries;
     }
 }

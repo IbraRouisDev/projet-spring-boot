@@ -14,14 +14,15 @@ public class City {
 
     private int zipCode;
 
-    @OneToMany(mappedBy="city")
+    @OneToMany(mappedBy = "city")
     private List<Library> libraries;
 
-    public City() {}
+    public City() {
+    }
 
     public City(String name, int zipCode) {
-        this.name=name;
-        this.zipCode=zipCode;
+        this.name = name;
+        this.zipCode = zipCode;
     }
 
     public long getId() {
@@ -42,5 +43,13 @@ public class City {
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<Library> getLibraries() {
+        return libraries;
+    }
+
+    public void setLibraries(List<Library> libraries) {
+        this.libraries = libraries;
     }
 }

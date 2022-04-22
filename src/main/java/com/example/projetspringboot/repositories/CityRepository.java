@@ -13,5 +13,5 @@ import java.util.List;
 public interface CityRepository extends PagingAndSortingRepository<City, Long> {
     City findById(@Param("id") long id);
     City findByName(@Param("name") String name);
-    List<City> findByNameLike(@Param("name") String name);
+    List<City> findByNameContaining(@Param("name") String name);
 }

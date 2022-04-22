@@ -9,7 +9,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <span class="navbar-brand">Books Finder</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,7 +38,7 @@
 </nav>
 <main>
     <div class="container">
-        <h1 class="mt-4">Add City</h1>
+        <h1 class="mt-4">Add Books</h1>
         <form action="#" th:action="@{/admin/book}" th:object="${book}" method="post">
             <div class="form-group">
                 <label for="bookName">Name:</label>
@@ -45,7 +46,8 @@
             </div>
             <div class="form-group">
                 <label for="bookDescription">Description:</label>
-                <input type="text" class="form-control" id="bookDescription" placeholder="Description" th:field="*{description}">
+                <input type="text" class="form-control" id="bookDescription" placeholder="Description"
+                       th:field="*{description}">
             </div>
             <div class="form-group">
                 <label for="bookAuthor">Author:</label>

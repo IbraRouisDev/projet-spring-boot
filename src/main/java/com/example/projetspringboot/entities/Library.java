@@ -29,11 +29,12 @@ public class Library {
         return city;
     }
 
-    public Library() {}
+    public Library() {
+    }
 
     public Library(String name, String location) {
-        this.name=name;
-        this.location=location;
+        this.name = name;
+        this.location = location;
     }
 
     public long getId() {
@@ -58,5 +59,13 @@ public class Library {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

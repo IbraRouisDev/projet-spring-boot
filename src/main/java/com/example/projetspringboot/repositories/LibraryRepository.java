@@ -10,10 +10,18 @@ import java.util.List;
 @RepositoryRestResource
 public interface LibraryRepository extends PagingAndSortingRepository<Library, Long> {
     Library findById(@Param("id") long id);
+
     List<Library> findByCityName(@Param("name") String name);
-    List<Library> findByNameLike(@Param("name") String name);
+
+    List<Library> findByNameContaining(@Param("name") String name);
+
     List<Library> findByBooksName(@Param("books_name") String books_name);
-    List<Library> findByBooksNameLike(@Param("books_name") String books_name);
+
+    List<Library> findByBooksNameContaining(@Param("books_name") String book_name);
+
     Library findByLocation(@Param("location") String location);
+
     Library findByName(@Param("name") String name);
+
+    List<Library> findByBooksIdNot(@Param("books_id") long books_id);
 }

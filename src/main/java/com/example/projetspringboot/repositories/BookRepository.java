@@ -11,5 +11,6 @@ import java.util.List;
 public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
     Book findById(@Param("id") long id);
     Book findByName(@Param("name") String name);
-    List<Book> findByNameLike(@Param("name") String name);
+    List<Book> findByNameContaining(@Param("name") String name);
+    List<Book> findByAuthorContaining(@Param("author") String author);
 }

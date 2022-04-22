@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books Manager</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <script th:href="@{/js/bootstrap.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <span class="navbar-brand">Books Finder</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" th:href="@{/books}">Books</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" th:href="@{/libraries}">Libraries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" th:href="@{/cities}">Cities</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
+            </li>
+        </ul>
+        <a class="btn btn-success mx-2" th:href="@{/admin}">Admin Dashboard</a>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <form>
+            <div class="form-group my-1">
+                <label for="searchName">Search:</label>
+                <input required type="text" class="form-control" id="searchName" placeholder="Search"
+                       name="search_value">
+            </div>
+            <select name="search_type" class="form-control my-1">
+                <option value="name">By Name</option>
+                <option value="author">By Author</option>
+                <option value="id">By ID</option>
+            </select>
+            <button type="submit" class="btn btn-primary my-2">Search</button>
+        </form>
+        <table class="table my-3">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${books}">
+                <th scope="row" th:text="${book.id}">
+                <td th:text="${book.name}"/>
+                <td th:text="${book.author}"/>
+                <td th:text="${book.description}"/>
+                <td>
+                    <a class="btn btn-info m-2" th:href="@{/admin/book/addtolib(id=${book.id})}">Add to library</a>
+                    <a class="btn btn-danger m-2" th:href="@{/admin/book/removefromlib(id=${book.id})}">Remove from
+                        library</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
