@@ -1,0 +1,7 @@
+
+.middle-content {
+    display: flex;
+    margin-top: 10vh;
+    height: 40vh;
+    justify-content: center;
+}
