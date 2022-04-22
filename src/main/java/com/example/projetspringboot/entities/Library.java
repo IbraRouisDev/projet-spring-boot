@@ -47,4 +47,16 @@ public class Library {
     public String getLocation() {
         return location;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }

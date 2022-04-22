@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <script th:href="@{/js/boot.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <span class="navbar-brand">Books Finder</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" th:href="@{/books}">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" th:href="@{/libraries}">Libraries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" th:href="@{/cities}">Cities</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
+      </li>
+    </ul>
+    <a class="btn btn-warning mx-2" th:href="@{/admin}">Admin Dashboard</a>
+  </div>
+</nav>
+
+<main>
+  <div class="alert alert-danger text-center" role="alert">
+    Error: Something wrong happened!
+  </div>
+</main>
+
+<footer class="container text-center">
+  <p>&copy; Books Finder 2022-2023</p>
+</footer>
+</body>
+</html>

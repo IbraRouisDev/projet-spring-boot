@@ -2,8 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Jobs Finder</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <title>Add City</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
     <script th:href="@{/js/bootstrap.js}"></script>
 </head>
@@ -15,7 +14,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link font-weight-bold" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -31,40 +30,26 @@
                 <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
             </li>
         </ul>
-        <a class="btn btn-warning mx-2" th:href="@{/admin}">Admin Dashboard</a>
+        <div class="">
+            <a class="btn btn-success mx-2" th:href="@{/admin}">Admin Dashboard</a>
+        </div>
     </div>
 </nav>
 <main>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">Welcome to Books Finder!</h1>
-            <p class="ml-4 mx-2">Are you looking for Books and Libraries? This website is for you!</p>
-            <p>
-                <a class="btn btn-success btn-lg ml-4" th:href="@{/books}" role="button">Find Books</a>
-                <a class="btn btn-primary btn-lg ml-2" th:href="@{/about}" role="button">About Us</a>
-            </p>
-        </div>
-    </div>
-
-    <div class="container middle-content">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Big Community</h2>
-                <p>We have over 5 Million active users per month. The community is big and diverse. You can find any Book
-                    you want.</p>
+    <div class="container">
+        <h1>Add City</h1>
+        <form action="#" th:action="@{/admin/city}" th:object="${city}" method="post">
+            <div class="form-group">
+                <label for="cityName">Name:</label>
+                <input type="text" class="form-control" id="cityName" placeholder="Name" th:field="*{name}">
             </div>
-            <div class="col-md-6">
-                <h2>Millions Of Books!</h2>
-                <p>We have millions of registered books and libraries worldwide waiting for you to read them!</p>
+            <div class="form-group">
+                <label for="cityZipCode">Zip Code:</label>
+                <input type="number" class="form-control" id="cityZipCode" placeholder="Zip Code" th:field="*{zipCode}">
             </div>
-        </div>
+            <button type="submit" class="btn btn-primary my-2">Add City</button>
+        </form>
     </div>
-    <hr>
 </main>
-
-<footer class="container">
-    <p>&copy; Books Finder 2022-2023</p>
-</footer>
 </body>
 </html>

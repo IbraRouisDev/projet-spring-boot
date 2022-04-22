@@ -15,4 +15,5 @@ public interface LibraryRepository extends PagingAndSortingRepository<Library, L
     List<Library> findByBooksName(@Param("books_name") String books_name);
     List<Library> findByBooksNameLike(@Param("books_name") String books_name);
     Library findByLocation(@Param("location") String location);
+    Library findByName(@Param("name") String name);
 }
