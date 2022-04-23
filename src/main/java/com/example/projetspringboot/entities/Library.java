@@ -10,8 +10,7 @@ public class Library {
     private long id;
 
     private String name;
-
-    @Column(unique = true)
+    
     private String location;
 
     @ManyToOne

@@ -15,8 +15,7 @@ public class Book {
     private String description;
 
     private String author;
-
-    @Column(nullable = true)
+    
     private String imgUrl;
 
     @ManyToMany(mappedBy = "books")
