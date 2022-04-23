@@ -22,12 +22,6 @@
                 <a class="nav-link font-weight-bold" th:href="@{/books}">Books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/libraries}">Libraries</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/cities}">Cities</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
             </li>
         </ul>
@@ -42,16 +36,22 @@
         <form action="#" th:action="@{/admin/book}" th:object="${book}" method="post">
             <div class="form-group">
                 <label for="bookName">Name:</label>
-                <input type="text" class="form-control" id="bookName" placeholder="Name" th:field="*{name}">
+                <input type="text" class="form-control" id="bookName" placeholder="Name" required th:field="*{name}">
             </div>
             <div class="form-group">
                 <label for="bookDescription">Description:</label>
-                <input type="text" class="form-control" id="bookDescription" placeholder="Description"
+                <input type="text" class="form-control" id="bookDescription" placeholder="Description" required
                        th:field="*{description}">
             </div>
             <div class="form-group">
                 <label for="bookAuthor">Author:</label>
-                <input type="text" class="form-control" id="bookAuthor" placeholder="Author" th:field="*{author}">
+                <input type="text" class="form-control" id="bookAuthor" placeholder="Author" th:field="*{author}"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="bookImg">Author:</label>
+                <input type="text" class="form-control" id="bookImg" placeholder="Image Url" th:field="*{imgUrl}"
+                       required>
             </div>
             <button type="submit" class="btn btn-primary my-2">Add Book</button>
         </form>

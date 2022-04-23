@@ -22,12 +22,6 @@
                 <a class="nav-link font-weight-bold" th:href="@{/books}">Books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/libraries}">Libraries</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/cities}">Cities</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
             </li>
         </ul>
@@ -42,14 +36,14 @@
         <form action="#" th:action="@{/admin/library}" th:object="${library}" method="post">
             <div class="form-group">
                 <label for="libraryName">Name:</label>
-                <input type="text" class="form-control" id="libraryName" placeholder="Name" th:field="*{name}">
+                <input type="text" class="form-control" id="libraryName" placeholder="Name" th:field="*{name}" required>
             </div>
             <div class="form-group">
                 <label for="libraryLocation">Location:</label>
-                <input type="text" class="form-control" id="libraryLocation" placeholder="Location"
+                <input type="text" class="form-control" id="libraryLocation" placeholder="Location" required
                        th:field="*{location}">
             </div>
-            <select th:field="*{city}" class="form-control">
+            <select th:field="*{city}" class="form-control" required>
                 <option th:each="city: ${cities}" th:value="${city.id}" th:text="${city.name}"></option>
             </select>
             <button type="submit" class="btn btn-primary my-2">Add Library</button>

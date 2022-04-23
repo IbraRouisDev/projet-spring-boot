@@ -1,6 +1,7 @@
 package com.example.projetspringboot.repositories;
 
 import com.example.projetspringboot.entities.Library;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -17,11 +18,7 @@ public interface LibraryRepository extends PagingAndSortingRepository<Library, L
 
     List<Library> findByBooksName(@Param("books_name") String books_name);
 
-    List<Library> findByBooksNameContaining(@Param("books_name") String book_name);
-
     Library findByLocation(@Param("location") String location);
 
     Library findByName(@Param("name") String name);
-
-    List<Library> findByBooksIdNot(@Param("books_id") long books_id);
 }

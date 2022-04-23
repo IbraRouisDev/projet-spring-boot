@@ -16,6 +16,9 @@ public class Book {
 
     private String author;
 
+    @Column(nullable = true)
+    private String imgUrl;
+
     @ManyToMany(mappedBy = "books")
     private List<Library> libraries;
 
@@ -62,5 +65,13 @@ public class Book {
 
     public void setLibraries(List<Library> libraries) {
         this.libraries = libraries;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

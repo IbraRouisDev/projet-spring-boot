@@ -12,6 +12,8 @@ import java.util.List;
 @RepositoryRestResource
 public interface CityRepository extends PagingAndSortingRepository<City, Long> {
     City findById(@Param("id") long id);
+
     City findByName(@Param("name") String name);
-    List<City> findByNameContaining(@Param("name") String name);
+
+    List<City> findByNameContainingIgnoreCase(@Param("name") String name);
 }

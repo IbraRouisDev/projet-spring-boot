@@ -9,7 +9,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <span class="navbar-brand">Books Finder</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -19,12 +20,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link font-weight-bold" th:href="@{/books}">Books</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/libraries}">Libraries</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/cities}">Cities</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
@@ -41,11 +36,12 @@
         <form action="#" th:action="@{/admin/city}" th:object="${city}" method="post">
             <div class="form-group">
                 <label for="cityName">Name:</label>
-                <input type="text" class="form-control" id="cityName" placeholder="Name" th:field="*{name}">
+                <input type="text" class="form-control" id="cityName" placeholder="Name" required th:field="*{name}">
             </div>
             <div class="form-group">
                 <label for="cityZipCode">Zip Code:</label>
-                <input type="number" class="form-control" id="cityZipCode" placeholder="Zip Code" th:field="*{zipCode}">
+                <input type="number" class="form-control" id="cityZipCode" placeholder="Zip Code" required
+                       th:field="*{zipCode}">
             </div>
             <button type="submit" class="btn btn-primary my-2">Add City</button>
         </form>

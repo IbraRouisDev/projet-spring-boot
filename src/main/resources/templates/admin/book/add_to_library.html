@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add book to library</title>
+    <title>Remove book from library</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
     <script th:href="@{/js/bootstrap.js}"></script>
@@ -23,12 +23,6 @@
                 <a class="nav-link font-weight-bold" th:href="@{/books}">Books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/libraries}">Libraries</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-weight-bold" th:href="@{/cities}">Cities</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link font-weight-bold" th:href="@{/about}">About Us</a>
             </li>
         </ul>
@@ -42,7 +36,7 @@
                 <label for="bookId">Name:</label>
                 <input readonly type="number" class="form-control" id="bookId" placeholder="Id" th:field="*{book_id}">
             </div>
-            <select th:field="*{library_id}" class="form-control">
+            <select th:field="*{library_id}" class="form-control" required>
                 <option th:each="library: ${libraries}" th:value="${library.id}" th:text="${library.name}"></option>
             </select>
             <button type="submit" class="btn btn-primary my-2">Add To Library</button>
