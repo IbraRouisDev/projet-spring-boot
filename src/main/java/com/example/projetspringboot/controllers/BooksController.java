@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,5 +39,14 @@ public class BooksController {
         model.addAttribute("page", pageNumber);
         model.addAttribute("books", books);
         return "books";
+    }
+
+    @GetMapping("/libraries/{id}")
+    public String bookLibraries(@PathVariable long id, Model model) {
+        var book = br.findById(id);
+        var libraries = book.getLibraries();
+        model.addAttribute("book", book);
+        model.addAttribute("libraries", libraries);
+        return "libraries";
     }
 }
