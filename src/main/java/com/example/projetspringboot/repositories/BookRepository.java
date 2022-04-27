@@ -1,6 +1,10 @@
 package com.example.projetspringboot.repositories;
 
 import com.example.projetspringboot.entities.Book;
+import com.example.projetspringboot.entities.Library;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -14,11 +18,11 @@ public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
 
     Book findByName(@Param("name") String name);
 
-    List<Book> findByNameContainingIgnoreCase(@Param("name") String name, Pageable pageable);
+    List<Book> findByNameContainingIgnoreCase(@Param("name") String name, @ParameterObject Pageable pageable);
 
-    List<Book> findByAuthorContainingIgnoreCase(@Param("author") String author, Pageable pageable);
+    List<Book> findByAuthorContainingIgnoreCase(@Param("author") String author, @ParameterObject Pageable pageable);
 
-    List<Book> findByNameContainingIgnoreCase(@Param("name") String name);
+    List<Book> findByNameContaining(@Param("name") String name);
 
-    List<Book> findByAuthorContainingIgnoreCase(@Param("author") String author);
+    List<Book> findByAuthorContaining(@Param("author") String author);
 }

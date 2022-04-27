@@ -85,10 +85,10 @@ public class AdminController {
     @GetMapping("/booksmanager")
     public String booksmanager(@RequestParam(value = "search_type", defaultValue = "") String searchType, @RequestParam(value = "search_value", defaultValue = "") String searchValue, Model model) {
         if (searchType.equals("name")) {
-            var books = bookrepo.findByNameContainingIgnoreCase(searchValue);
+            var books = bookrepo.findByNameContaining(searchValue);
             model.addAttribute("books", books);
         } else if (searchType.equals("author")) {
-            var books = bookrepo.findByAuthorContainingIgnoreCase(searchValue);
+            var books = bookrepo.findByAuthorContaining(searchValue);
             model.addAttribute("books", books);
         } else if (searchType.equals("id")) {
             var book = bookrepo.findById(Long.parseLong(searchValue));
